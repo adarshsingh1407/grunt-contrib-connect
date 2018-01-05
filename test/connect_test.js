@@ -58,29 +58,6 @@ exports.connect = {
       test.done();
     });
   },
-  custom_http2: function(test) {
-    if (!grunt.config.data.connect.http2) {
-      test.done();
-    }
-    else {
-      test.expect(3);
-      get({
-        scheme: 'http2',
-        rejectUnauthorized: false,
-        hostname: 'localhost',
-        port: 8017,
-        path: '/fixtures/hello.txt',
-        headers: {
-          accept: 'text/plain'
-        }
-      }, function(res, body) {
-        test.equal(res.httpVersion, '2.0', 'should return HTTP/2 response');
-        test.equal(res.statusCode, 200, 'should return 200');
-        test.equal(body, 'Hello world', 'should return static page');
-        test.done();
-      });
-    }
-  },
   custom_https: function(test) {
     test.expect(2);
     get({
@@ -130,25 +107,6 @@ exports.connect = {
       test.equal(res.statusCode, 200, 'should return 200');
       test.equal(body, 'Hello world', 'should return static page');
       test.done();
-    });
-  },
-  multiple_base: function(test) {
-    test.expect(4);
-    get({
-      hostname: 'localhost',
-      port: 8004,
-      path: '/fixtures/hello.txt',
-      headers: {
-        accept: 'text/plain'
-      }
-    }, function(res, body) {
-      test.equal(res.statusCode, 200, 'should return 200');
-      test.equal(res.headers['content-type'], 'text/plain; charset=UTF-8', 'should return plaintext content type');
-      get('http://localhost:8004/connect-examples.md', function(res, body) {
-        test.equal(res.headers['content-type'], 'text/x-markdown; charset=UTF-8', 'should return markdown content type');
-        test.equal(res.statusCode, 200, 'should return 200');
-        test.done();
-      });
     });
   },
   multiple_base_with_options: function(test) {
