@@ -1,6 +1,6 @@
-# grunt-contrib-connect v1.0.2 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-connect.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-connect) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/3bp93hbs2rd5lwfd/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-connect/branch/master)
-
 > Start a connect web server
+
+> Fix to usse built-in http2 module of node
 
 
 
@@ -9,13 +9,13 @@
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-contrib-connect --save-dev
+npm install neo-grunt-contrib-connect --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-contrib-connect');
+grunt.loadNpmTasks('neo-grunt-contrib-connect');
 ```
 
 
@@ -372,37 +372,3 @@ grunt.registerTask('jasmine-server', 'start web server for jasmine tests in brow
   grunt.task.run('connect:tests:keepalive');
 });
 ```
-
-
-## Release History
-
- * 2016-04-27   v1.0.2   Fixed http2 dependencies and stopped using the fork.
- * 2016-03-22   v1.0.1   Fixed dependencies behind corporate proxy server.
- * 2016-03-04   v1.0.0   Use predefined logger format with colored http status. Update deps and docs. HTTP2 support. Other fixes.
- * 2015-08-03   v0.11.2   Documentation fixes.
- * 2015-08-01   v0.11.1   Fixes debug logging.
- * 2015-07-30   v0.11.0   Update to connect 3.
- * 2015-04-03   v0.10.1   Fixes npm corruption issue.
- * 2015-04-03   v0.10.0   Node.js 0.12 fixes. Doc updates. Fixes port finding. Other fixes.
- * 2014-11-07   v0.9.0   Adds routable middleware. Switch to `opn` as it fixes some Linux issues. Add support for `connect.static` instance options.
- * 2014-06-09   v0.8.0   Update connect and connect-livereload.
- * 2014-02-27   v0.7.1   Fixes issue with the '*' `hostname` option.
- * 2014-02-18   v0.7.0   Update connect to ~2.13.0. Default hostname switched to `0.0.0.0`. Modified `options.middleware` to accept an array or a function.
- * 2013-12-29   v0.6.0   Open `options.hostname` if provided. Update connect-livereload to ~0.3.0. Update connect to ~2.12.0. Use well-formed SSL certificates. Support all options of open. Make directory browseable when base is a string.
- * 2013-09-05   v0.5.0   Add `open` option.
- * 2013-09-05   v0.4.2   Un-normalize `options.base` as it should be a string or an array as the user has set. Fix setting target `hostname` option.
- * 2013-09-02   v0.4.1   Browse-able directory is the last item supplied to bases. Added directory option to override browse-able directory.
- * 2013-09-01   v0.4.0   Fix logging of which server address. Ability to set multiple bases. Event emitted when server starts listening. Support for HTTPS. `debug` option added to display debug logging like the `--debug` flag. `livereload` option added to inject a livereload snippet into the page.
- * 2013-04-10   v0.3.0   Add ability to listen on system-assigned port.
- * 2013-03-07   v0.2.0   Upgrade connect dependency.
- * 2013-02-17   v0.1.2   Ensure Gruntfile.js is included on npm.
- * 2013-02-15   v0.1.1   First official release for Grunt 0.4.0.
- * 2013-01-18   v0.1.1rc6   Updating grunt/gruntplugin dependencies to rc6. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
- * 2013-01-09   v0.1.1rc5   Updating to work with grunt v0.4.0rc5.
- * 2012-11-01   v0.1.0   Work in progress, not yet officially released.
-
----
-
-Task submitted by ["Cowboy" Ben Alman](http://benalman.com)
-
-*This file was generated on Wed Apr 27 2016 10:11:42.*
